@@ -1,0 +1,54 @@
+body {
+    padding: 20px;
+    margin: 20px;
+}
+
+h1 {
+    font-size: 3em;
+    margin: 20px 0px;
+}
+
+li {
+    font-size: 1.5em;
+}
+
+li button {
+    margin: auto 10px;
+    font-size: 0.5em;
+    width: 50px;
+    height: 20px;
+    font-weight: normal;
+}
+
+input {
+    height: 20px;
+    width: 250px;
+    margin: 10px 20px;
+    padding: 5px;
+}
+
+input[type='checkbox'] {
+    height: 15px;
+    width: 15px;
+    margin: 10px 10px;
+}
+
+input::placeholder {
+    font-size: 15px;
+
+}
+
+button {
+    height: 34px;
+    width: 70px;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: sans-serif;
+    outline: none;
+    border-radius: 5px;
+    box-shadow: none;
+}
+
+.done {
+    text-decoration: line-through;
+}

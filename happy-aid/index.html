@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Eid</title>
+
+    <!-- HTML2CANVAS -->
+
+
+    <!-- BOOTSTRAP 4 -->
+    <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+        integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+    </script>
+
+    <!-- CSS  -->
+    <style>
+        body,
+        html {
+            height: 100%;
+            font-family: 'Cairo', sans-serif;
+
+
+        }
+
+        .bg {
+            background-image: url("images/bg.png");
+            height: 100%;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #panel {
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+            display: flex;
+        }
+
+        .caption {
+            position: absolute;
+            bottom: 15%;
+            left: 50%;
+            width: 100%;
+            text-align: center;
+            color: #000;
+            transform: translate(-50%, -20%);
+            font-family: 'Cairo', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .caption span.border {
+            color: rgba(223, 149, 112, 0.9);
+            letter-spacing: 0;
+            line-height: 0;
+            padding: 18px;
+        }
+
+        @media screen and (max-width: 480px) {
+
+            .caption {
+
+                font-size: 3rem;
+            }
+        }
+    </style>
+    <script>
+        function getScreen() {
+
+            const caption = $('#caption-input').val();
+            $("#caption-text").html(caption);
+            $("#panel").hide();
+            html2canvas(document.body, {
+                dpi: 192,
+                onrendered: function (canvas) {
+                    $("#blank").attr('href', canvas.toDataURL("image/png"));
+                    $("#blank").attr('download', caption + '.png');
+                    $("#blank")[0].click();
+
+
+                }
+            });
+        }
+    </script>
+</head>
+
+<body class="bg">
+    <div class="container" id="panel">
+        <br><br><br>
+        <div class="row">
+            <div class="col-md-12 offset-md-3">
+
+                <h1 class="text-white text-center mt-2">اكتب اسمك</h1>
+                <div class="col-md-12 offset-md-3">
+                    <div class="center">
+                        <hr>
+                        <input type="text" name="caption-input" id="caption-input" placeholder="اسمك ..." value=""
+                            class="form-control">
+                    </div>
+                </div>
+                <hr>
+
+                <div class="col-md-8 offset-md-2 m-auto">
+                    <a href="javascript:getScreen();" class="btn btn-md btn-block btn-success">حفظ</a>
+                    <a href="" id="blank"></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="caption" id="caption">
+        <span id="caption-text" class="border">مثال : ابو احمد</span>
+    </div>
+
+
+
+    <script src="js/html2canvas.js"></script>
+    <!-- jQUERY -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+</body>
+
+</html>
